@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  username: postgres
+
+development:
+  <<: *default
+  database: clan_development
+  port: 5434
+
+test:
+  <<: *default
+  database: clan_test
+
+production:
+  <<: *default
+  database: clan_production
