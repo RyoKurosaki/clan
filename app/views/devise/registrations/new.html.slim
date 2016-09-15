@@ -27,9 +27,9 @@
         br
         = f.password_field :password_confirmation, autocomplete: "off", class:'form-control'
       .field.form-group
-        = f.label :position
+        = f.label :position_id
         - positions = [['メンバー',4], ['長老',3], ['サブリーダー',2], ['リーダー',1]]
-        = f.select :position, positions, { include_blank: true }, class: 'form-control'
+        = f.select :position_id, positions, { include_blank: true }, class: 'form-control'
       .actions
         = f.submit "Sign up", class:'btn btn-default'
     = render "devise/shared/links"
