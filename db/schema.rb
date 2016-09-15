@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(version: 20160914191354) do
 
   create_table "schedules", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "event_start"
+    t.string   "event_end"
     t.boolean  "clan_event"
     t.integer  "create_user"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160914191354) do
     t.string   "name",                   default: "", null: false
     t.boolean  "admin"
     t.boolean  "beout"
+    t.string   "position",               default: "", null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

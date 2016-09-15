@@ -7,10 +7,11 @@ $ ->
       right: 'prev,next today month,agendaWeek'
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
     events: '/schedules/get_events.json'
-    editable: true
     dayClick: (date, jsEvent, view) ->
       $.ajax(
         url: '/schedules/new'
+        data:
+          start: date.format('YYYY/MM/DD HH:mm')
       )
     eventRender: (event, element) ->
       element.qtip(

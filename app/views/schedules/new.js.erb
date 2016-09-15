@@ -1,6 +1,6 @@
 $("#schedule-modal").html("<%= escape_javascript(render 'new') %>")
 $('.datepicker').datetimepicker({
-  ignoreReadonly: true,
-  minDate: new Date()
+  format : "YYYY/MM/DD HH:mm",
+  ignoreReadonly: true
 })
 $("#schedule-modal").modal("show")

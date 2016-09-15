@@ -1,16 +1,18 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, :set_schedule, only: [:edit, :update, :destroy]
 
   def index
   end
 
   def get_events
-    @schedules = Schedule.all
+    @schedules = Schedule.joins(:user).preload(:user).where("create_user = ? or clan_event = ?", current_user.id, true)
     render "get_events", :formats => [:json], :handlers => [:jbuilder]
   end
 
   def new
     @schedule = Schedule.new
+    @schedule.event_start = params[:start]
+    @schedule.event_end = params[:start]
   end
 
   def edit

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root to: "logins#index"
-  get 'logins/index'
+  resources :logins, only: [:index, :update]
 
   resources :schedules, only: [:index, :new, :create, :edit, :update]
-get "schedules/get_events"
+  get "schedules/get_events"
 end
