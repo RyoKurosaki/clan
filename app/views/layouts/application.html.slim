@@ -25,7 +25,7 @@ html
                 li = link_to 'schedules', schedules_path
             ul class = 'nav navbar-nav navbar-right'
               - if user_signed_in?
-                li = link_to Utils::CommonUtil.check_user_status(current_user.beout), login_path(id: current_user.id), method: :put
+                li = link_to '外出/在宅', edit_login_path(id: current_user.id), remote: true
                 li = link_to current_user.name, root_path
                 li = link_to 'プロフィール変更', edit_user_registration_path
                 li = link_to destroy_user_session_path, method: :get do
@@ -37,6 +37,7 @@ html
                   span.glyphicon.glyphicon-log-in
                   |  ログイン
     .container
+      #user-modal.modal.fade tabindex="-1" role="dialog" aria-hidden="true"
       = flash_messages
       = yield
     footer class = 'navbar-default navbar-fixed-bottom'

@@ -1,0 +1,8 @@
+$("#user-modal").html("<%= escape_javascript(render 'edit') %>")
+$('.datepicker').datetimepicker({
+  format : "YYYY/MM/DD HH:mm",
+  ignoreReadonly: true,
+  defaultDate: new Date(),
+  stepping: 60
+})
+$("#user-modal").modal("show")

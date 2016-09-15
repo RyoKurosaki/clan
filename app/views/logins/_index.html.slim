@@ -1,0 +1,11 @@
+- @users.each do |user|
+  tr
+    td = user.name
+    - if user.beout
+      td.beout = Utils::CommonUtil.check_user_status(user.beout)
+    - else
+      td.bein = Utils::CommonUtil.check_user_status(user.beout)
+    td = user.position.name
+    td = user.place
+    td = user.out_start
+    td = user.out_end

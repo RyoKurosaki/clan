@@ -6,16 +6,13 @@
       table class = 'table table-striped table-hover table-condensed'
         thead
         tr
-          th ID
           th Name
           th Status
           th Position
+          th 外出先
+          th 外出開始
+          th 外出終了
 
-        tbody
-          - @users.each do |user|
-            tr
-              td = user.id
-              td = user.name
-              td = Utils::CommonUtil.check_user_status(user.beout)
-              td = user.position
+        tbody.user-index
+          = render 'index'
   .col-sm-2

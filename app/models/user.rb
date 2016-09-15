@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
     self.roles.where(name: name).length > 0
   end
   has_many :schedules, primary_key: :create_user
+  belongs_to :position
   validates :name, presence: true, length: { maximum: 50 }
 end
